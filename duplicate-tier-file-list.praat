@@ -1,16 +1,13 @@
 #######################################################
 ### duplicate-tier-file-list
-###
-### Duplicates a chosen tier and creates new tier called SYL.
-### This is applied to all TextGrid files saved in one folder.
-###
-### TextGrids to be modified must have all the same number of tiers at the beginning.
-###
+### This script opens a parent directory where files are kept.
+### It duplicates a chosen tier and creates a new tier called SYL.
 ### Optionally, a list of all modified files can be obtained.
+### TextGrids to be modified must have all the same number of tiers at the beginning!
 ###
-### Catalina Torres July 2018
-###
-#####################	FORM	#######################
+### Catalina Torres, July 2018
+### catalinat@student.unimelb.edu.au
+#####################	Parameters	#######################
 baseDir$ = chooseDirectory$: "Select base directory (where soundfiles are kept)"
 beginPause: "Add tier in file list - Parameters"
   	comment: "Enter parent directory where files are kept:"

@@ -1,4 +1,5 @@
 ###########################################################
+# add-tier-file-list
 # This script opens a parent directory where files are kept
 # There are four different options, you can:
 # 1. remove a tier - (point or interval tier)
@@ -6,7 +7,7 @@
 # 3. Add one or even two interval tiers
 # - Save a list of all your modified textgrids
 # Catalina Torres, August 2018.
-# 
+# catalinat@student.unimelb.edu.au
 #####################	Parameters	#######################
 baseDir$ = chooseDirectory$: "Select base directory (where soundfiles are kept)"
 beginPause: "Add tier in file list - Parameters"
