@@ -19,11 +19,11 @@ beginPause: "Add tier in file list - Parameters"
 	integer: "tier_number_to_be_removed" , 0
 	comment: "Add point tier?"
 	boolean: "point_tier" , 0
-	integer: "position_point_tier" , 4
+	integer: "position_point_tier" , 5
 	word: 	 "name_point_tier" , "Tones"
 	comment: "Add interval tier 1?"
 	boolean: "add_interval_tier_1" , 0
-	word: 	 "name_interval_tier_1" , "POS"
+	word: 	 "name_interval_tier_1" , "Ut"
 	integer: "position_interval_tier_1" , 2
 	comment: "Add interval tier 2?"
 	boolean: "add_interval_tier_2" , 0
@@ -62,7 +62,7 @@ for ifile from 1 to numberOfFiles
 	endif
 	
 	if add_interval_tier_1 = 1
-		Insert interval tier... 'position_interval_tier_1' POS
+		Insert interval tier... 'position_interval_tier_1' Ut
 	endif
 
 	if add_interval_tier_2 = 1
