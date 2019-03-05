@@ -1,3 +1,4 @@
+
  #	visor-corrector-de-TextGrids (v. 1.1 - febrero 2014)
 #
 #							DESCRIPCIÓN
