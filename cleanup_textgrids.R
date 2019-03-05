@@ -1,8 +1,11 @@
 # This script goes through a TextGrid and removes all the text from tier number 2 leaving all boundaries in
-# puts everything into new folder /fixed
-# Start from the centre of the issue! 
-# read all lines in txt - use regular expressions to find text to be removed
-# create new textgrid
+# puts everything into new folder /fixed.
+
+#   Catalina Torres
+#	catalinat@student.unimelb.edu.au 
+#	Phonetics laboratory (The University of Melbourne)
+
+
 remove_text_from_tier_2 <- function(source_file){
   
   text_grid <-  readLines(source_file)

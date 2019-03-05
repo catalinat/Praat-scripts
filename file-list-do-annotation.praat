@@ -19,10 +19,12 @@
 #	5. El TextGrid se guardará en la misma carpeta donde estaba (¡esto significa que se sobreescribirá!)
 #		y se abrirá el archivo siguiente de la lista.
 #
-#	Wendy Elvira-García (2013). Visor-corrector de TextGrids. [praat script]
+#	Original Wendy Elvira-García (2013). Visor-corrector de TextGrids. [praat script]
 #	wendyelviragarcia@gmail.com
 #	Laboratori de Fonètica (Universitat de Barcelona)
-#
+#   Modified by Catalina Torres
+#	catalinat@student.unimelb.edu.au 
+#	Phonetics laboratory (The University of Melbourne)
 ###########################################################################################
 
 #seleccionador de carpeta (sólo crea una variable)

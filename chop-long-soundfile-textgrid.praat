@@ -30,7 +30,8 @@
 ### Pauline Welby  
 ### welby@icp.inpg.fr
 ### April 2006
-### Catalina Torres January 2018
+### Modified by
+### Catalina Torres, January 2018
 ###
 #########################################################################################################
 
