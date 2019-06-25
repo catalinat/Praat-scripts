@@ -60,7 +60,7 @@ beginPause: "Chop long soundfiles - Parameters"
   comment: "Chop Textgrids?"
   boolean: "chopTextgrids", 1
   comment: "Enter basename of soundfile (without .wav extension)"
-  sentence: "baseName", "ALSA_Fr_PDV4"
+  sentence: "baseName", "Marianne_Dr_JDM"
 clicked = endPause: "Continue", 1
 
 # delete any existing record file
