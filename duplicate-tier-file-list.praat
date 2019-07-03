@@ -42,7 +42,7 @@ for ifile from 1 to numberOfFiles
 	select TextGrid 'nameObject$'
 	
 	if duplicate_interval_tier = 1
-		Duplicate tier... 'position_to_be_duplicated' 'position_new_duplicated_interval_tier' POS
+		Duplicate tier... 'position_to_be_duplicated' 'position_new_duplicated_interval_tier' SYL
 	endif
 
 
