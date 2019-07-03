@@ -1,23 +1,19 @@
-
- #	visor-corrector-de-TextGrids (v. 1.1 - febrero 2014)
 #
-#							DESCRIPCIÓN
-#	Este script abre uno a uno todos los ficheros .wav de una carpeta acompañados de su 
-#	respectivo TextGrid en el editor de Praat para permitir su corrección, guarda el TextGrid
-#	y abre el siguiente fichero.
+#							DESCRIPCTION
+#	This script opens a series of .wav files with their corresponding textgrids.
+#	It allows to do modifications on a one by one basis and saves the new material in the existing folder. 
 #
 #
-#							INSTRUCCIONES
+#							INSTRUCTIONS
 #
-#	0. Para usar este script necesitas una serie de ficheros .wav y sus respectivos TextGrid.
-#	1. Abre el script con Praat (Read from file...) y selecciona el script o simplemente arrastra el fichero al icono de Praat.
-#	2. Se abrirá una ventana donde se pregunta donde están tus archivos, selecciona la carpeta y clica "OK"
-#	3. Se abrirá un formulario donde puedes elegir si quieres empezar a trabajar con el archivo 1 de la lista 
-#		o si, por el contrario, ya habías trabajado con esos archivos antes y sabes el número por el que te quedaste.
-#		Clica OK.
-#	4. Se abrirán el sonido y el TextGrid juntos. Corrige lo que sea necesario y cuando acabes clica "Continue".
-#	5. El TextGrid se guardará en la misma carpeta donde estaba (¡esto significa que se sobreescribirá!)
-#		y se abrirá el archivo siguiente de la lista.
+#	0. To use thi script will need a series of .wav files and their corresponding Textgrids.
+#	1. Open the script and click on "Run"
+#	2. A window will open. Navigate to the desired folder and click "choose"
+#	3. A new window will open. Here you can decide if you wish to start with the first recording in the list, or a different one.
+# 		Click "Ok" to continue. 
+#	4. A sound file and the corresponding textgrid will be opened. Do the necessary corrections and click "Continue".
+#	5. The new created textgrid will be saved in the folder (the old version is overwritten).
+#	6. The next file to be changed will be opened and you can continue your work. 
 #
 #	Original Wendy Elvira-García (2013). Visor-corrector de TextGrids. [praat script]
 #	wendyelviragarcia@gmail.com
@@ -29,12 +25,8 @@
 
 #seleccionador de carpeta (sólo crea una variable)
 #comenta esta linea (pon una almohadilla) y descomenta las 4 lineas del siguiente bloque, si quieres poner la ruta escrita, sin el selector.
-folder$ = chooseDirectory$ ("Elige la carpeta cuyos archivos quieres ver/modificar:")
+folder$ = chooseDirectory$ ("Choose folder containing files to be modified:")
 
-# form
-# comment Pon la ruta de la carpeta donde están los archivos:
-# word Folder Users/usuario/carpeta
-# endform
 
 
 #Crea la lista de archivos de todos los wav de esa carpeta
