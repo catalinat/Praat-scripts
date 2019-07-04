@@ -6,14 +6,14 @@
 #
 #							INSTRUCTIONS
 #
-#	0. To use thi script will need a series of .wav files and their corresponding Textgrids.
+#	0. To use this script you will need a series of .wav files and their corresponding textgrids.
 #	1. Open the script and click on "Run"
-#	2. A window will open. Navigate to the desired folder and click "choose"
+#	2. A window will open. Navigate to the desired folder and click "choose".
 #	3. A new window will open. Here you can decide if you wish to start with the first recording in the list, or a different one.
 # 		Click "Ok" to continue. 
-#	4. A sound file and the corresponding textgrid will be opened. Do the necessary corrections and click "Continue".
+#	4. A sound file and the corresponding textgrid will open up. Do the necessary corrections and click "Continue".
 #	5. The new created textgrid will be saved in the folder (the old version is overwritten).
-#	6. The next file to be changed will be opened and you can continue your work. 
+#	6. The next file to be changed will open up and you can continue your work. 
 #
 #	Original Wendy Elvira-García (2013). Visor-corrector de TextGrids. [praat script]
 #	wendyelviragarcia@gmail.com
