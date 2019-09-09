@@ -16,8 +16,8 @@ beginPause: "Add tier in file list - Parameters"
 	boolean: "duplicate_interval_tier" , 0
 	integer: "position_to_be_duplicated" , ""
 	integer: "position_new_duplicated_interval_tier" , ""
-	word: 	 "name_new_interval_tier" , "POS"
-	boolean: "save_list_of_modified_files" , 0
+	word: 	 "name_new_interval_tier" , "SYL"
+	boolean: "save_list_of_modified_files" , 1
 clicked = endPause: "Continue", 1
 ##########################################
 if windows = 1

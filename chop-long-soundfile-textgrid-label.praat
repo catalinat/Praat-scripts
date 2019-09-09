@@ -42,13 +42,13 @@ beginPause: "Chop long soundfiles - Parameters"
   comment: "Enter parent directory where sound files are kept:"
   sentence: "soundDir" , "'baseDir$'"
   comment: "Enter directory where TextGrid files are kept:"
-  sentence: "textDir" , "'baseDir$'"
+  sentence: "textDir" , "'baseDir$'/TextGrids"
   comment: "Enter directory to which created sound files should be saved:"
   sentence: "outDirSound" , "'baseDir$'/out"
   comment: "Enter directory to which created TextGrid files should be saved:"
   sentence: "outDirTex" , "'baseDir$'/outTex"
   comment: "Specify tier name: "
-  sentence: "tierName" , "text"
+  sentence: "tierName" , "Ut"
   comment: "Specify length of left and right buffer (in seconds):"
   positive: "margin" , "0.08"
   comment: "Optional prefix:"
@@ -60,7 +60,7 @@ beginPause: "Chop long soundfiles - Parameters"
   comment: "Chop Textgrids?"
   boolean: "chopTextgrids", 1
   comment: "Enter basename of soundfile (without .wav extension)"
-  sentence: "baseName", "2_Syl"
+  sentence: "baseName", "Marianne_Dr_JDM"
 clicked = endPause: "Continue", 1
 
 # delete any existing record file
@@ -75,7 +75,7 @@ for ifile to numberOfFiles
   # Read in the Sound and TextGrid files
   appendInfoLine: "Reading file: 'baseName$'.wav" 
   Open long sound file... 'soundDir$'/'baseName$'.wav
-  Read from file... 'textDir$'/'baseName$'.TextGrid
+  Read from file... 'textDir$'/zero_'baseName$'.TextGrid
 
   # Go through tiers and extract info
 
@@ -113,17 +113,17 @@ for ifile to numberOfFiles
         # Base file name for sound output
         if append_time = 1
           timeStamp$ =  replace$ ("'begwd:2'", ".", "_", 0)
-          outputBaseS$ = "'outDirSound$'/'prefix$''baseName$'-'timeStamp$''suffix$'"
+          outputBaseS$ = "'outDirSound$'/'prefix$''lab$'-'baseName$'-'timeStamp$''suffix$'"
         else
-          outputBaseS$ = "'outDirSound$'/'prefix$''baseName$''suffix$'"
+          outputBaseS$ = "'outDirSound$'/'prefix$''lab$''baseName$''suffix$'"
         endif
 
         # Base file name for outDirTex
         if append_time = 1
           timeStamp$ =  replace$ ("'begwd:2'", ".", "_", 0)
-          outputBase$ = "'outDirTex$'/'prefix$''baseName$'-'timeStamp$''suffix$'"
+          outputBase$ = "'outDirTex$'/'prefix$''lab$''baseName$'-'timeStamp$''suffix$'"
         else
-          outputBase$ = "'outDirTex$'/'prefix$''baseName$''suffix$'"
+          outputBase$ = "'outDirTex$'/'prefix$''lab$''baseName$''suffix$'"
         endif
 
 
