@@ -1,5 +1,6 @@
+#####################################################################################
 # Move left and right boundary of labeled intervals 
-# Puts final left and right boundaries at zero crossings
+# Puts left and right boundaries at zero crossings
 #
 # Goes in a loop through separate folders
 #
@@ -15,9 +16,9 @@
 # Danielle Daidone 5/2/17
 #####################################################################################
 baseDir$ = chooseDirectory$ ("Choose folder containing files to be modified:")
-beginPause: "Move left boundary earlier and zero cross final boundaries"
+beginPause: "Move left and boundaries to zero crossing"
 	comment: "Enter directory where sound files  are kept:"
-    sentence: "soundDir", "'baseDir$'/sound"
+    sentence: "soundDir", "'baseDir$'"
     comment: "Enter directory where TextGrid files are kept:"
     sentence: "textDir", "'baseDir$'/grid"
 	comment: "Specify directory where new textgrid will be saved:"
@@ -79,7 +80,7 @@ Read from file... 'textDir$'/'baseFile$'.TextGrid
 				Insert boundary... tier zero
 			   endif
 		    
-			#move left boundary earlier by specified duration
+			#move left boundary to closest zero crossing earlier by specified duration
 			select TextGrid 'baseFile$'
 			boundary1 = Get start point... tier i
 			select Sound 'baseFile$'
@@ -89,28 +90,12 @@ Read from file... 'textDir$'/'baseFile$'.TextGrid
 				Remove left boundary... tier i
 				Insert boundary... tier zero1
 			  endif
-	
-			# leftbound = Get start point... tier i
-			# appendInfoLine: "original boundaries:'leftbound', 'boundary'"
-			# Insert boundary... tier leftbound - moveDur
-			# Remove right boundary... tier i
-						
-			#move left boundary to closest zero crossing
-			# boundary2 = Get start point... tier i
-			# select Sound 'fileName$'
-			# zero2 = Get nearest zero crossing... 1 boundary2
-			#   if boundary2 != zero2
-			# 	select TextGrid 'baseFile$'
-			# 	Remove left boundary... tier i
-			# 	Insert boundary... tier zero2
-			#   endif
-			# select TextGrid 'baseFile$'
-			# a = Get start point... tier i
-			# b = Get end point... tier i
-			# appendInfoLine: "new boundaries: 'a', 'b''newline$'"
 			
-		  # endif
-    #            endfor
+			select TextGrid 'baseFile$'
+			a = Get start point... tier i
+			b = Get end point... tier i
+			appendInfoLine: "new boundaries: 'a', 'b''newline$'"
+		
 
         select TextGrid 'baseFile$'
         for i to ni
@@ -119,7 +104,9 @@ Read from file... 'textDir$'/'baseFile$'.TextGrid
         endfor
 
 	select TextGrid 'baseFile$'
-	Write to text file... 'baseDir$'_'baseFile$'.TextGrid
+	#Write to text file... 'baseDir$'_'baseFile$'.TextGrid
+	Write to text file... 'saveDir$'/'baseFile$'.TextGrid
+	Remove
 
 	else
 	writeInfoLine: "Specified tier is not an interval tier"

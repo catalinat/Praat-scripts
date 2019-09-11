@@ -1,13 +1,13 @@
 ##################################################
+## Resynthesise duration
+## This Script looks at labels for syllables
+## The time in the selected interval is doubled 
 ##
-## Script looks at label files and does f0 resynthesis
-## 
-##
-## Pauline Welby
+## Author Catalina Torres 
+## September 2019
+## Adapted from resynthf0.praat by Pauline Welby
 ## welby@icp.inpg.fr
 ## April 2006
-## Modified by Catalina Torres 
-## September 2019
 #################################################### 
 baseDir$ = chooseDirectory$ ("Choose folder containing files to be modified:")
 beginPause: "Input directory name without final slash"
@@ -16,9 +16,9 @@ beginPause: "Input directory name without final slash"
     comment: "Enter directory where TextGrid files are kept:"
     sentence: "textDir", "'baseDir$'/grid"
     comment: "Enter directory to which created sound files should be saved:"
-  	sentence: "outDirSound" , "'baseDir$'/resynth"
+  	sentence: "outDirSound" , "'baseDir$'/resynthDur"
     comment: "Specify tier name:"
-    sentence: "tierName", "Tones"
+    sentence: "tierName", "SYL"
 clicked = endPause: "Continue", 1
 
 # specify files to be worked on
@@ -48,31 +48,27 @@ for i from 1 to 'nTiers'
 
 		if tname$ = "'tierName$'"
 
-		# Search for points for defining F0			
-		          nPoints = Get number of points... 'i'
+		# Search for points for defining Duration			
+		          nPoints = Get number of intervals... 'i'
 			 for j from 1 to 'nPoints'
 							
-				lab$ = Get label of point... 'i' 'j'
+				lab$ = Get label of interval... 'i' 'j'
 
-					 if lab$ = "L1"
-    				       	    timeA = Get time of point... 'i' 'j'
+					 if lab$ = "1"
+    				       	    time1s = Get start point... 'i' 'j'
 					 endif
 
-					 if lab$ = "L2"
-    				       	    timeB = Get time of point... 'i' 'j'
+					  if lab$ = "1"
+    				       	    time1e = Get end point... 'i' 'j'
 					 endif
 
-					 if lab$ = "H1"
-    				       	    timeC = Get time of point... 'i' 'j'
+					 if lab$ = "F"
+    				       	    timeFs = Get start point... 'i' 'j'
 					 endif
 
-                     if lab$ = "L3"
-    				       		timeD = Get time of point... 'i' 'j'
+					  if lab$ = "F"
+    				       	    timeFe = Get end point... 'i' 'j'
 					 endif
-
-					 # if lab$ = "H2"
-    		# 		       	    timeE = Get time of point... 'i' 'j'
-					 # endif
 										 
 			endfor
 		endif
@@ -80,40 +76,34 @@ for i from 1 to 'nTiers'
 endfor
 
 
-# Select the Sound file and make a Manipulaton object
-select Sound 'baseFile$'
-To Pitch (ac)... 0 75 15 no 0.03 0.45 0.01 0.35 0.14 600
-f0A = Get value at time... 'timeA' Hertz Linear
-f0B = Get value at time... 'timeB' Hertz Linear
-f0C = Get value at time... 'timeC' Hertz Linear
-f0D = Get value at time... 'timeD' Hertz Linear
-# f0E = Get value at time... 'timeE' Hertz Linear
 
+# specify new time value (relative to original value)
 
-# specify new f0 value (relative to original value)
+ new1s = time1s + 0.001
+ new1e = time1e - 0.001 
 
-newf0C = f0B
-#newf0D = f0C
 
 # Create Manipulation object
 select Sound 'baseFile$'
 To Manipulation... 0.01 75 600
 
 # Do the resynthesis
-Extract pitch tier
+Extract duration tier
 Rename... 'baseFile$'
-Remove points between... 'timeA' 'timeD'
-Add point... 'timeC' 'newf0C'
-#Add point... 'timeD' 'newf0D'
+#Create DurationTier: "lengthen", 0, 'time1s' + 'timeFe'
+Add point:  'time1s', 1
+Add point:  'new1s', 2
+Add point:  'new1e', 2
+Add point:  'time1e', 1
 select Manipulation 'baseFile$'
-plus PitchTier 'baseFile$'
-Replace pitch tier
+plus DurationTier 'baseFile$'
+Replace duration tier
 select Manipulation 'baseFile$'
-Get resynthesis (PSOLA)
-Rename... resynth-'baseFile$'
+Get resynthesis (overlap-add)
+Rename... resynthDUR-'baseFile$'
 
 
-Write to WAV file... 'soundDir$'/RF-'baseFile$'.wav
+Save as WAV file... 'outDirSound$'/RD-'baseFile$'.wav
 
 # Clean up
 

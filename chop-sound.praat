@@ -1,7 +1,8 @@
 #########################################################################################################
-### chop-long-soundfile.praat
+### chop-soundfile.praat
 ###
-### Saves little sound files from one big sound file.
+### Goes through folder (1 for sound, 1 for textgrids)
+### Saves little sound files from one bigger sound file.
 ###  
 ### Opens a soundfile as a LongSound object and reads in its associated TextGrid file.
 ###
@@ -17,7 +18,7 @@
 ### This disambiguates between two tokens of the same word and also allows one to find the word 
 ### in the longer sound file, if need be. 
 ###
-### Creates and saves a TextGrid file for each token.
+### Creates and saves a TextGrid file for each token in two different folders.
 ###
 ### Creates two separate directories for .wav and .TexGrid files 
 ### Creates a text file named:
@@ -31,7 +32,7 @@
 ### welby@icp.inpg.fr
 ### April 2006
 ### Modified by
-### Catalina Torres, January 2018
+### Catalina Torres, Spetember 2019
 ###
 #########################################################################################################
 
@@ -42,25 +43,23 @@ beginPause: "Chop long soundfiles - Parameters"
   comment: "Enter parent directory where sound files are kept:"
   sentence: "soundDir" , "'baseDir$'"
   comment: "Enter directory where TextGrid files are kept:"
-  sentence: "textDir" , "'baseDir$'/TextGrids"
+  sentence: "textDir" , "'baseDir$'/zero"
   comment: "Enter directory to which created sound files should be saved:"
   sentence: "outDirSound" , "'baseDir$'/out"
   comment: "Enter directory to which created TextGrid files should be saved:"
   sentence: "outDirTex" , "'baseDir$'/outTex"
   comment: "Specify tier name: "
-  sentence: "tierName" , "Ut"
-  comment: "Specify length of left and right buffer (in seconds):"
-  positive: "margin" , "0.08"
+  sentence: "tierName" , "TOK"
+  # comment: "Specify length of left and right buffer (in seconds):"
+  # positive: "margin" , "0.001"
   comment: "Optional prefix:"
   sentence: "prefix" , ""
   comment: "Optional suffix (.wav will be added anyway):"
   sentence: "suffix" , ""
   comment: "Append time point?"
-  boolean: "append_time", 1
+  boolean: "append_time", 0
   comment: "Chop Textgrids?"
   boolean: "chopTextgrids", 1
-  comment: "Enter basename of soundfile (without .wav extension)"
-  sentence: "baseName", "Marianne_Dr_JDM"
 clicked = endPause: "Continue", 1
 
 # delete any existing record file
@@ -70,8 +69,17 @@ clicked = endPause: "Continue", 1
 #fileappend 'outDir$'/list.txt 'baseName$'.wav 'newline$'
 
 writeInfoLine: "Start"
-numberOfFiles = 1
+# specify files to be worked on
+Create Strings as file list... list 'soundDir$'/*.wav
+
+# loop that goes through all files
+numberOfFiles = Get number of strings
 for ifile to numberOfFiles
+   select Strings list
+   baseFile$ = Get string... ifile
+   baseName$ = baseFile$ - ".wav"
+
+
   # Read in the Sound and TextGrid files
   appendInfoLine: "Reading file: 'baseName$'.wav" 
   Open long sound file... 'soundDir$'/'baseName$'.wav
@@ -113,17 +121,17 @@ for ifile to numberOfFiles
         # Base file name for sound output
         if append_time = 1
           timeStamp$ =  replace$ ("'begwd:2'", ".", "_", 0)
-          outputBaseS$ = "'outDirSound$'/'prefix$''lab$'-'baseName$'-'timeStamp$''suffix$'"
+          outputBaseS$ = "'outDirSound$'/'prefix$''baseName$'-'timeStamp$''suffix$'"
         else
-          outputBaseS$ = "'outDirSound$'/'prefix$''lab$''baseName$''suffix$'"
+          outputBaseS$ = "'outDirSound$'/'prefix$''baseName$''suffix$'"
         endif
 
         # Base file name for outDirTex
         if append_time = 1
           timeStamp$ =  replace$ ("'begwd:2'", ".", "_", 0)
-          outputBase$ = "'outDirTex$'/'prefix$''lab$''baseName$'-'timeStamp$''suffix$'"
+          outputBase$ = "'outDirTex$'/'prefix$''baseName$'-'timeStamp$''suffix$'"
         else
-          outputBase$ = "'outDirTex$'/'prefix$''lab$''baseName$''suffix$'"
+          outputBase$ = "'outDirTex$'/'prefix$''baseName$''suffix$'"
         endif
 
 
@@ -131,12 +139,11 @@ for ifile to numberOfFiles
         appendInfo: " >  'outputBase$'"
 
         # Add buffers, if specified
-        begfile = 'begwd'-'margin'
-        endfile = 'endwd'+'margin' 
-        duration = 'endfile'-'begfile'
+        begfile = 'begwd' 
+        endfile = 'endwd' 
+        duration = 'begwd'-'endwd'
 
         # Create and save small .wav file
-
         # Split wav file
         select LongSound 'baseName$'
         Extract part... 'begfile' 'endfile' no
