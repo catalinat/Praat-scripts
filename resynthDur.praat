@@ -1,7 +1,7 @@
 ##################################################
 ## Resynthesise duration
 ## This Script looks at labels for syllables
-## The time in the selected interval is doubled 
+## The time in the selected interval of a tier is doubled 
 ## It creates a new tier with new boundaries for token
 ## (including increased duration)
 ## new boundaries are at zero crossing
