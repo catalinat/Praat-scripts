@@ -1,5 +1,5 @@
 #################################################################
-## label-L1-L2-H1-L3 
+## label-P1-P2-P3-P4 
 ##
 ## Reads TextGrids from a list 
 ## Prompts users to manual identify L1 and other points in F0
@@ -77,21 +77,21 @@ editor Sound 'name$'
 
 # prompts user to click on segmental landmarks, create variables with values at point clicked
 
- pause Click Click on L1
+ pause Click Click on li
  Move cursor to nearest zero crossing
- l1 = Get cursor
+ p1 = Get cursor
 
- pause Click Click on L2
+ pause Click Click on Hi
  Move cursor to nearest zero crossing
- l2 = Get cursor
+ p2 = Get cursor
 
- pause Click Click on H1
+ pause Click Click on la
  Move cursor to nearest zero crossing
- h1 = Get cursor
+ p3 = Get cursor
 
- pause Click Click on L3
+ pause Click Click on Ha
  Move cursor to nearest zero crossing
- l3 = Get cursor
+ p4 = Get cursor
  
 Close
 endeditor
@@ -100,10 +100,10 @@ endeditor
 
 select TextGrid 'name$'
 
-Insert point: 5, 'l1', "L1"
-Insert point: 5, 'l2', "L2"
-Insert point: 5, 'h1', "H1"
-Insert point: 5, 'l3', "L3"
+Insert point: 5, 'p1', "li"
+Insert point: 5, 'p2', "Hi"
+Insert point: 5, 'p3', "la"
+Insert point: 5, 'p4', "Ha"
 
 # allow user to confirm tagging (and make necessary changes)
 
