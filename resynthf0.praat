@@ -1,7 +1,12 @@
 ##################################################
-##
 ## Script looks at label files and does f0 resynthesis
-## 
+## script works with folder organised into three other folders each for: 
+## 1.sound files to be manipulated
+## 2. TextGrids files with marked tonal targets
+## 3. empty folder where new resynthesised sound files will be stored
+## script gets F0 values for all marked poits
+## resynthesis done with PSOLA
+## new sound files carries RF- prefrix
 ##
 ## Pauline Welby
 ## welby@icp.inpg.fr
