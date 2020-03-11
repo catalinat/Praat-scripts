@@ -26,16 +26,16 @@ beginPause: "Input directory name without final slash"
     sentence: "tierName", "SYL"
     comment: "Target label for interval to stretch:"
     sentence: "targetLabel", "1"
-    # comment: "Stretch factor to change target inteval duration "
-    # sentence: "stretchFactor", "210/'targetIntervalEnd'"
+    comment: "Stretch factor to change target inteval duration "
+    sentence: "stretchFactor", "2"
 clicked = endPause: "Continue", 1
 
 
 # specify files to be worked on
 Create Strings as file list... list 'soundDir$'/*.wav
 
-# Stretch factor for the first syllable
-#stretchFactor = 'stretchFactor$'
+#Stretch factor for the first syllable
+stretchFactor = 'stretchFactor$'
 
 # loop that goes through all files
 numberOfFiles = Get number of strings
@@ -52,10 +52,10 @@ for ifile to numberOfFiles
 	Read from file... 'soundDir$'/'baseFile$'.wav
 	Read from file... 'textDir$'/'baseFile$'.TextGrid
 
-	# Frst we need to make sure the TextGrid matches the sound file length exactly
-	# select TextGrid 'baseFile$'
-	# plus Sound 'baseFile$'
-	# Scale times
+	#First we need to make sure the TextGrid matches the sound file length exactly
+	select TextGrid 'baseFile$'
+	plus Sound 'baseFile$'
+	Scale times
 
 	## Search all tiers until appropriate tier is found
 	select TextGrid 'baseFile$'
@@ -70,7 +70,7 @@ for ifile to numberOfFiles
 							
 				lab$ = Get label of interval... 'i' 'j'
 
-				 if lab$ = "ar"
+				 if lab$ = "fw"
 		       	    tokenStart = Get start point... 'i' 'j'
 				 endif
 
@@ -105,14 +105,14 @@ for ifile to numberOfFiles
 	Extract duration tier
 	Rename... 'baseFile$'
 	Add point:  'targetIntervalStart', 1
-	Add point:  'paddedIntervalStart', 190/'targetIntervalEnd'
-	Add point:  'paddedIntervalEnd', 190/'targetIntervalEnd'
+	Add point:  'paddedIntervalStart', 2
+	Add point:  'paddedIntervalEnd', 2
 	Add point:  'targetIntervalEnd', 1
 
 	select Manipulation 'baseFile$'
 	plus DurationTier 'baseFile$'
 	Replace duration tier
-	
+	# 
 	select Manipulation 'baseFile$'
 	Get resynthesis (overlap-add)
 	Rename... rd-'baseFile$'
@@ -120,35 +120,35 @@ for ifile to numberOfFiles
 	Save as WAV file... 'outDirSound$'/rd-'baseFile$'.wav
 
 	# # Create new boundaries for the token
- #    durationDelta = (paddedIntervalEnd - paddedIntervalStart) * (stretchFactor - 1)
-	# zeroStart = Get nearest zero crossing... 1 tokenStart
-	# zeroEnd = Get nearest zero crossing... 1 tokenEnd + durationDelta
+    durationDelta = (paddedIntervalEnd - paddedIntervalStart) * (stretchFactor - 1)
+	zeroStart = Get nearest zero crossing... 1 tokenStart
+	zeroEnd = Get nearest zero crossing... 1 tokenEnd + durationDelta
 	
-	# # Scale the TextGrid
-	# select TextGrid 'baseFile$'
-	# plus DurationTier 'baseFile$'
-	# To TextGrid (scale times)
-	# Rename... rd-'baseFile$'
+	# Scale the TextGrid
+	select TextGrid 'baseFile$'
+	plus DurationTier 'baseFile$'
+	To TextGrid (scale times)
+	Rename... rd-'baseFile$'
 
-	# appendInfoLine: "Adding a new tier 'cuts' with new token boundaries"
-	# Insert interval tier: 1, "cuts"
-	# Insert boundary... 1 zeroStart
-	# Insert boundary... 1 zeroEnd
-	# Set interval text... 1 2 x
+	appendInfoLine: "Adding a new tier 'cuts' with new token boundaries"
+	Insert interval tier: 1, "cuts"
+	Insert boundary... 1 zeroStart
+	Insert boundary... 1 zeroEnd
+	Set interval text... 1 2 x
 
-	# appendInfoLine: "New Token duration :", (tokenEnd - tokenStart)
+	appendInfoLine: "New Token duration :", (tokenEnd - tokenStart)
 
-	#appendInfoLine: "Saving new TextGrid to 'outDirSound$'/rd-'baseFile$'.TextGrid"
-	#Save as text file... 'outDirSound$'/rd-'baseFile$'.TextGrid
+	appendInfoLine: "Saving new TextGrid to 'outDirSound$'/rd-'baseFile$'.TextGrid"
+	Save as text file... 'outDirSound$'/rd-'baseFile$'.TextGrid
 
-	# cleanup selection
-	#select Manipulation 'baseFile$'
-	#plus DurationTier 'baseFile$'
-	#plus TextGrid 'baseFile$'
-	#plus Sound 'baseFile$'
-	#plus TextGrid rd-'baseFile$'
-	#plus Sound rd-'baseFile$'
-	#Remove
+	#cleanup selection
+	select Manipulation 'baseFile$'
+	plus DurationTier 'baseFile$'
+	plus TextGrid 'baseFile$'
+	plus Sound 'baseFile$'
+	plus TextGrid rd-'baseFile$'
+	plus Sound rd-'baseFile$'
+	Remove
 endfor
 
 
