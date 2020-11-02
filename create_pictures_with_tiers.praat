@@ -95,12 +95,22 @@ spectrogram_maximum_frequency = 5000
 
 
 ############################		FORMULARIO		###################################################################
+baseDir$ = chooseDirectory$ ("Choose folder containing files for images:")
+beginPause: "Input directory name without final slash"
+    comment: "Enter directory where sound files  are kept:"
+    sentence: "Sounds_folder", "'baseDir$'"
+    comment: "Enter directory where TextGrid files are kept:"
+    sentence: "TextGrids_folder", "'baseDir$'"
+    comment: "Enter directory to which created images should be saved:"
+  	sentence: "Pictures_folder" , "'baseDir$'/images"
+clicked = endPause: "Continue", 1
+
 
 form Create_pictures
-    comment Where are your files?
-    sentence Sounds_folder /Users/catalinat/Documents/GitHub/MyWriting/ICPhS19Latex-FD/figures
-    sentence TextGrids_folder /Users/catalinat/Documents/GitHub/MyWriting/ICPhS19Latex-FD/figures
-    sentence Pictures_folder /Users/catalinat/Documents/GitHub/MyWriting/ICPhS19Latex-FD/figures/NEW
+    # comment Where are your files?
+    # sentence Sounds_folder /Users/catalinat/Documents/GitHub/MyWriting/Perception_experiment/figures/Sound
+    # sentence TextGrids_folder /Users/catalinat/Documents/GitHub/MyWriting/Perception_experiment/figures/Sound
+    # sentence Pictures_folder /Users/catalinat/Documents/GitHub/MyWriting/Perception_experiment/figures/Sound
 	boolean Draw_spectrogram 1
     positive Dynamic_range 45
     boolean Draw_F0_curve yes
@@ -411,30 +421,7 @@ for ifile to numberOfFiles
 	endif
 
 
-	# Label x axis
-	if label_of_the_time_axis <> 1
-		if label_of_the_time_axis = 2
-			label_of_the_time_axis$ = "Tiempo (s)"
-		elsif label_of_the_time_axis = 3
-			label_of_the_time_axis$ = "Temps (s)"
-		elsif label_of_the_time_axis = 4
-			label_of_the_time_axis$ = "Time (s)"
-		elsif label_of_the_time_axis = 5
-			label_of_the_time_axis$ = "Tempo (s)"
-		elsif label_of_the_time_axis = 6
-			label_of_the_time_axis$ = "Zeit (s)"
-		elsif label_of_the_time_axis = 7
-			label_of_the_time_axis$ = "Denbora (s)"
-		elsif label_of_the_time_axis = 8
-			label_of_the_time_axis$ = "(s)"
-		endif
-		#escribe el título del eje x (de tiempo)
-		Text top... no 'label_of_the_time_axis$'
-	endif
 
-	#Pone las marcas del eje de tiempo
-	Marks top every... 1 'time_mark_without_number' no yes no
-	Marks top every... 1 'time_mark_with_number' yes yes no
 
 
 
@@ -461,6 +448,32 @@ for ifile to numberOfFiles
 	# Dibuja la línea exterior
 	Black
 	Draw inner box
+
+
+		# Label x axis
+	if label_of_the_time_axis <> 1
+		if label_of_the_time_axis = 2
+			label_of_the_time_axis$ = "Tiempo (s)"
+		elsif label_of_the_time_axis = 3
+			label_of_the_time_axis$ = "Temps (s)"
+		elsif label_of_the_time_axis = 4
+			label_of_the_time_axis$ = "Time (s)"
+		elsif label_of_the_time_axis = 5
+			label_of_the_time_axis$ = "Tempo (s)"
+		elsif label_of_the_time_axis = 6
+			label_of_the_time_axis$ = "Zeit (s)"
+		elsif label_of_the_time_axis = 7
+			label_of_the_time_axis$ = "Denbora (s)"
+		elsif label_of_the_time_axis = 8
+			label_of_the_time_axis$ = "(s)"
+		endif
+		#escribe el título del eje x (de tiempo)
+		Text bottom... no 'label_of_the_time_axis$'
+	endif
+
+	#Pone las marcas del eje de tiempo
+	Marks bottom every... 1 'time_mark_without_number' no yes no
+	Marks bottom every... 1 'time_mark_with_number' yes yes no
 
   #############################		GUARDA LA IMAGEN	##############################
   	if pDF = 1
