@@ -46,5 +46,5 @@ fix_textgrids_in_directory <- function(directory){
 }
 
 # Select directory to be used
-fix_textgrids_in_directory("/Users/catalinat/Desktop/TextGrids")
+fix_textgrids_in_directory("/Users/catalina/Desktop/TextGrids")
 #fix_textgrids_in_directory("/Users/catalinat/Desktop/TEST-MAUS/regex-test")
