@@ -6,22 +6,22 @@
 #	Phonetics laboratory (The University of Melbourne)
 
 
-remove_text_from_tier_5 <- function(source_file){
+remove_text_from_tier_8 <- function(source_file){
   
   text_grid <-  readLines(source_file)
   
   new_text_grid = c()
   
-  in_tier_5 <- FALSE
+  in_tier_8 <- FALSE
   for (row in text_grid){
-    if(grepl("item [5]:", row, fixed=TRUE)){
-      in_tier_5 <- TRUE
+    if(grepl("item [8]:", row, fixed=TRUE)){
+      in_tier_8 <- TRUE
     }
-    if(grepl("item [6]:", row, fixed=TRUE)){
-      in_tier_5 <- FALSE
+    if(grepl("item [9]:", row, fixed=TRUE)){
+      in_tier_8 <- FALSE
     }
     
-    if(in_tier_5){
+    if(in_tier_8){
       row <- gsub("text = \".*\"", "text = \"\"", row)
     }
     
@@ -41,9 +41,9 @@ remove_text_from_tier_5 <- function(source_file){
 # Find multiple files in directory
 fix_textgrids_in_directory <- function(directory){
   for (f in list.files(directory, full.names = TRUE, pattern = ".+TextGrid")) {
-    remove_text_from_tier_5(f)
+    remove_text_from_tier_8(f)
   }
 }
 
 # Select directory to be used
-fix_textgrids_in_directory("/Users/catalina/Desktop/Pitjantjara_ConverbProsody/data-30.08.2021/Ana3-batches/Batch 20")
+fix_textgrids_in_directory("/Users/catalina/Desktop/DoReCo sample files/Veraa/TetxGrids and Mono/out")

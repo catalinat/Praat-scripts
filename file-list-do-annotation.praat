@@ -13,7 +13,7 @@
 #	4. A sound file and the corresponding textgrid will open up. Do the necessary corrections and click "Continue".
 #	5. The new created textgrid will be saved in the folder (the old version is overwritten).
 #	6. The next file to be changed will open up and you can continue your work. 
-#Uncovering the acoustic vowel space of a previously undescribed language 
+#	
 #	Original Wendy Elvira-García (2013). Visor-corrector de TextGrids. [praat script]
 #	wendyelviragarcia@gmail.com
 #	Laboratori de Fonètica (Universitat de Barcelona)

@@ -46,11 +46,11 @@ beginPause: "Chop long soundfiles - Parameters"
   comment: "Enter directory to which created sound files should be saved:"
   sentence: "outDirSound" , "'baseDir$'/out"
   comment: "Enter directory to which created TextGrid files should be saved:"
-  sentence: "outDirTex" , "'baseDir$'/outTex"
+  sentence: "outDirTex" , "'baseDir$'/grid"
   comment: "Specify tier name: "
-  sentence: "tierName" , "Ut"
+  sentence: "tierName" , "utterances"
   comment: "Specify length of left and right buffer (in seconds):"
-  positive: "margin" , "0.08"
+  positive: "margin" , "0.100"
   comment: "Optional prefix:"
   sentence: "prefix" , ""
   comment: "Optional suffix (.wav will be added anyway):"
@@ -60,7 +60,7 @@ beginPause: "Chop long soundfiles - Parameters"
   comment: "Chop Textgrids?"
   boolean: "chopTextgrids", 1
   comment: "Enter basename of soundfile (without .wav extension)"
-  sentence: "baseName", "Marianne_Dr_JDM"
+  sentence: "baseName", "Initial_MaxContrast_1_01"
 clicked = endPause: "Continue", 1
 
 # delete any existing record file
