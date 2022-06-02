@@ -60,7 +60,7 @@ beginPause: "Chop long soundfiles - Parameters"
   comment: "Chop Textgrids?"
   boolean: "chopTextgrids", 1
   comment: "Enter basename of soundfile (without .wav extension)"
-  sentence: "baseName", "Initial_MaxContrast_1_01"
+  sentence: "baseName", "Medial_MaxContrast_2_01"
 clicked = endPause: "Continue", 1
 
 # delete any existing record file
