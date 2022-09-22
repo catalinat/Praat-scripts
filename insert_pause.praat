@@ -31,7 +31,7 @@ form Give the parameters for pause analysis
    real Starting_time_(seconds) 0
    real Finishing_time_(0=all) 0
    comment The following criteria define a pause:
-   positive Minimum_duration_(seconds) 0.39
+   positive Minimum_duration_(seconds) 0.40
    positive Maximum_intensity_(dB) 63
    comment Give the intensity analysis parameters:
 	 positive Minimum_pitch_(Hz) 100
@@ -43,12 +43,12 @@ form Give the parameters for pause analysis
 	button Two boundaries with a time margin of:
 	positive Margin_(seconds) 0.1
 	comment (The margin will not be used if the pause is shorter than 2 * margin.)
-	boolean Mark_pause_intervals_with_silence 1
+	boolean Mark_pause_intervals_with_silence 0
    comment Save TextGrid file to folder:
-	text folder /Users/catalina/Desktop/Vietnamese_stimuli/Processed_4/
+	text folder /Users/catalina/Desktop/Central Pame/Grabaciones Pame Central/First pass Pame/
    comment The script will pause after calculating 4 windows, so you can interrupt the script and check if the pause detection works optimally.
-   sentence directory /Users/catalina/Desktop/Vietnamese_stimuli/Processed_4
-   sentence fileName Medial_MaxContrast_2_01.wav
+   sentence directory /Users/catalina/Desktop/Central Pame/Grabaciones Pame Central/First pass Pame/
+   sentence fileName Rec_Pame_
 endform
 
 
