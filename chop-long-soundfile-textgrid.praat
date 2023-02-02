@@ -48,7 +48,7 @@ beginPause: "Chop long soundfiles - Parameters"
   comment: "Enter directory to which created TextGrid files should be saved:"
   sentence: "outDirTex" , "'baseDir$'/outTex"
   comment: "Specify tier name: "
-  sentence: "tierName" , "text"
+  sentence: "tierName" , "utterances"
   comment: "Specify length of left and right buffer (in seconds):"
   positive: "margin" , "0.08"
   comment: "Optional prefix:"
@@ -60,7 +60,7 @@ beginPause: "Chop long soundfiles - Parameters"
   comment: "Chop Textgrids?"
   boolean: "chopTextgrids", 1
   comment: "Enter basename of soundfile (without .wav extension)"
-  sentence: "baseName", "2_Syl"
+  sentence: "baseName", "Rec_Pame_ _05_22"
 clicked = endPause: "Continue", 1
 
 # delete any existing record file

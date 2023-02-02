@@ -166,4 +166,4 @@ add_pauses_in_directory <- function(directory) {
 
 
 # Select directory to be used
-add_pauses_in_directory("/Users/catalina/Desktop/UoM-G-Drive/Pitjantjara_ConverbProsody/data-30.08.2021/Ana3-batches/Batch 26/new")
+add_pauses_in_directory("/Users/catalina/Desktop/UoM-G-Drive/Pitjantjara_ConverbProsody/data-30.08.2021/Analysis3-prior-annotation/new")
