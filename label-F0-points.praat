@@ -47,7 +47,7 @@ endPause: "OK", 1
 # opens loop 
 
 # Uncomment following line (and comment the read as list line below) to read in files using a regular expression
-# Create Strings as file list... list 'textDir$'/*.wav
+ Create Strings as file list... list 'textDir$'/*.wav
 
 # Uncomment following line (and comment preceding line) to read in files from a list
 # in a text file.
