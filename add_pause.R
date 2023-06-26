@@ -1,5 +1,5 @@
-# This script goes through a folder with TextGrids, finds tiers and pauses (in tier 6)
-# When it finds a pause it adds labeld "P" to interval with same time stamp in tier 4
+# This script goes through a folder with TextGrids, finds tiers and pauses (in tier 5)
+# When it finds a pause it adds labeld "P" to interval with same time stamp in tier 2
 # puts everything into new folder /fixed.
 
 # Catalina Torres
@@ -58,7 +58,7 @@ find_pauses <- function(text_grid) {
   pause <- FALSE
   for (row in text_grid) {
     tier <- extract_tier(row, tier)
-    if (tier != 6 ){
+    if (tier != 5 ){
       # skip to next row (from input text_grid)
       # (don't run the lines after in the for loop)
       next
@@ -99,7 +99,7 @@ find_pauses <- function(text_grid) {
 # %>% strsplit('\n') %>% unlist
 # )
 
-add_pauses <- function(text_grid, pauses, target_tier=4, pause_label="P") {
+add_pauses <- function(text_grid, pauses, target_tier=2, pause_label="P") {
   new_text_grid = c()
   
   tier <- -1
@@ -166,4 +166,4 @@ add_pauses_in_directory <- function(directory) {
 
 
 # Select directory to be used
-add_pauses_in_directory("/Users/catalina/Desktop/UoM-G-Drive/Pitjantjara_ConverbProsody/data-30.08.2021/Analysis3-prior-annotation/new")
+add_pauses_in_directory("/Users/catalina/Desktop/can_delete")

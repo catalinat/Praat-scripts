@@ -154,7 +154,7 @@ save_new_text_grid <- function(source_file, new_text_grid) {
   writeLines(new_text_grid, fileConn)
   close(fileConn)
   sprintf("File %s fixed and saved to %s", source_file, dest_file)
-}
+}x
 
 
 
@@ -182,6 +182,6 @@ add_target_labels_in_directory <- function(directory, matching_tier, matching_la
 
 
 # Select directory to be used
-add_target_labels_in_directory("/Users/catalina/Desktop/TEST-candelete", 
+add_target_labels_in_directory("/Users/catalina/Desktop/SW", 
                                  matching_tier=3, matching_label="\\?", 
-                                 target_tier=2, target_label="GLO")
+                                 target_tier=1, target_label="GLO")

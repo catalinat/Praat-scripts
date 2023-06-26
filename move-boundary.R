@@ -150,4 +150,4 @@ move_boundary_in_directory <- function(directory) {
 
 
 # Select directory to be used
-move_boundary_in_directory("/Users/catalina/Desktop/Central Pame/Grabaciones Pame Central/First pass Pame/C-Mar2023/newGrids")
+move_boundary_in_directory("/Users/catalina/Desktop/UZH-Projects/Central_Pame/Audio/First_pass/D-Apr2023/newGrids")
