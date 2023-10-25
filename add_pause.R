@@ -166,4 +166,4 @@ add_pauses_in_directory <- function(directory) {
 
 
 # Select directory to be used
-add_pauses_in_directory("/Users/catalina/Desktop/can_delete")
+add_pauses_in_directory("/Users/catalina/Desktop/UZH-Projects/Central_Pame/textgrids_alignment-master/syllabified")

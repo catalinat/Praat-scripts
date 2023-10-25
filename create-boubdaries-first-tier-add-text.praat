@@ -3,6 +3,7 @@
 ## This Script finds the text in tier one 
 ## Finds the first and last boundaries in tier 2
 ## Adds the first and last boundaries to tier 1
+## Add the label "utterance" to the first tier
 ## Author Catalina Torres 
 ## Written by Victor Pillac
 #################################################### 
@@ -12,8 +13,8 @@ beginPause: "Input directory name without final slash"
     sentence: "textDir", "'baseDir$'"
   	 comment: "Enter directory to which created TextGrids should be saved:"
   	 sentence: "saveDir" , "'baseDir$'/new"
-    # comment: "Specify tier name for text:"
-    # sentence: "tierName1", "utt"
+     comment: "Specify text in new tier:"
+     sentence: "tierText", "utterance"
     # comment: "Specify tier name for boundaries:"
     # sentence: "tierName2", "ort"
 clicked = endPause: "Continue", 1
@@ -57,7 +58,7 @@ for ifile to numberOfFiles
 		# Set text on Tier 1 Interval 1 to be empty
 		Set interval text... 1 1 
 		# Set text on Tier 1 Interval 2 to be intText
-		Set interval text... 1 2 'intText$'
+		Set interval text... 1 2 'tierText$'
 	endif
 
 	if lastBoundary != time1e
@@ -65,7 +66,7 @@ for ifile to numberOfFiles
 		Insert boundary... 1 time1e
 	endif
 
-	Write to text file... 'saveDir$'/'baseFile$'.TextGrid
+	Save as text file... 'saveDir$'/'baseFile$'.TextGrid
 
 	# Clean up
 

@@ -62,7 +62,7 @@ for ifile from 1 to numberOfFiles
 	endif
 	
 	if add_interval_tier_1 = 1
-		Insert interval tier... 'position_interval_tier_1' stop-vot
+		Insert interval tier... 'position_interval_tier_1' vot
 	endif
 
 	if add_interval_tier_2 = 1
