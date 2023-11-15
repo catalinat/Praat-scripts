@@ -665,7 +665,7 @@ for ifile to numberOfFiles
 	Add point... 'value_x' 'value_y'
 	select 'textgrid'
 	rndy = round('value_y')
-	Insert point... 1 'value_x' 'rndy'
+	Insert point... 1 'point' 'rndy'
 	#/BR#
 
 	endfor

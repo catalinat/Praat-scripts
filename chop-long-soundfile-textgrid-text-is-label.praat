@@ -1,7 +1,8 @@
 #########################################################################################################
 ### chop-long-soundfile.praat
 ###
-### Saves little sound files from one big sound file. The text in the chopped tier is in the file name.
+### Saves little sound files from one big sound file. The text in the chopped tier is in the file name 
+### but not the name of the original file.
 ###  
 ### Opens a soundfile as a LongSound object and reads in its associated TextGrid file.
 ###
@@ -9,7 +10,7 @@
 ### with an optional buffer on each end.
 ###
 ### Saves each extracted portion to a .wav file named:
-### (<prefix>)<text in tier>_<originalfilename>_<time_value>(<suffix>).wav
+### (<prefix>)<text in tier>_<time_value>(<suffix>).wav
 ###
 ### NB: The time value (in seconds to two decimal places) of the beginning of the segment
 ### in the original sound file is included in the file name. 
@@ -31,7 +32,7 @@
 ### welby@icp.inpg.fr
 ### April 2006
 ### Modified by
-### Catalina Torres, January 2018
+### Catalina Torres, November 2023
 ###
 #########################################################################################################
 
@@ -48,9 +49,9 @@ beginPause: "Chop long soundfiles - Parameters"
   comment: "Enter directory to which created TextGrid files should be saved:"
   sentence: "outDirTex" , "'baseDir$'/grid"
   comment: "Specify tier name: "
-  sentence: "tierName" , "utterances"
+  sentence: "tierName" , "ref@MT"
   comment: "Specify length of left and right buffer (in seconds):"
-  positive: "margin" , "0.100"
+  positive: "margin" , "0.05"
   comment: "Optional prefix:"
   sentence: "prefix" , ""
   comment: "Optional suffix (.wav will be added anyway):"
@@ -60,7 +61,7 @@ beginPause: "Chop long soundfiles - Parameters"
   comment: "Chop Textgrids?"
   boolean: "chopTextgrids", 1
   comment: "Enter basename of soundfile (without .wav extension)"
-  sentence: "baseName", "Medial_MaxContrast_2_01"
+  sentence: "baseName", "doreco_ngal1292_"
 clicked = endPause: "Continue", 1
 
 # delete any existing record file
@@ -113,17 +114,17 @@ for ifile to numberOfFiles
         # Base file name for sound output
         if append_time = 1
           timeStamp$ =  replace$ ("'begwd:2'", ".", "_", 0)
-          outputBaseS$ = "'outDirSound$'/'prefix$''lab$'-'baseName$'-'timeStamp$''suffix$'"
+          outputBaseS$ = "'outDirSound$'/'prefix$''lab$'-'timeStamp$''suffix$'"
         else
-          outputBaseS$ = "'outDirSound$'/'prefix$''lab$''baseName$''suffix$'"
+          outputBaseS$ = "'outDirSound$'/'prefix$''lab$''suffix$'"
         endif
 
         # Base file name for outDirTex
         if append_time = 1
           timeStamp$ =  replace$ ("'begwd:2'", ".", "_", 0)
-          outputBase$ = "'outDirTex$'/'prefix$''lab$''baseName$'-'timeStamp$''suffix$'"
+          outputBase$ = "'outDirTex$'/'prefix$''lab$'-'timeStamp$''suffix$'"
         else
-          outputBase$ = "'outDirTex$'/'prefix$''lab$''baseName$''suffix$'"
+          outputBase$ = "'outDirTex$'/'prefix$''lab$''suffix$'"
         endif
 
 

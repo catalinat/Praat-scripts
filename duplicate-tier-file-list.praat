@@ -13,11 +13,12 @@ beginPause: "Add tier in file list - Parameters"
   	comment: "Enter parent directory where files are kept:"
   	sentence: "Dir" , "'baseDir$'"
 	comment: "Duplicate interval tier?"
-	boolean: "duplicate_interval_tier" , 0
+	boolean: "duplicate_interval_tier" , 1
 	integer: "position_to_be_duplicated" , ""
 	integer: "position_new_duplicated_interval_tier" , ""
-	word: 	 "name_new_interval_tier" , "vot"
-	boolean: "save_list_of_modified_files" , 1
+	comment: "Name of your new tier:"
+	sentence: "Name", ""
+	boolean: "save_list_of_modified_files" , 0
 clicked = endPause: "Continue", 1
 ##########################################
 if windows = 1
@@ -42,7 +43,7 @@ for ifile from 1 to numberOfFiles
 	select TextGrid 'nameObject$'
 	
 	if duplicate_interval_tier = 1
-		Duplicate tier... 'position_to_be_duplicated' 'position_new_duplicated_interval_tier' vot
+		Duplicate tier... 'position_to_be_duplicated' 'position_new_duplicated_interval_tier' ph@ngal
 	endif
 
 
