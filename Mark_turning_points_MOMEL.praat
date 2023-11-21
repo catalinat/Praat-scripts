@@ -33,13 +33,13 @@ clearinfo
 #	praat momel.script file.wav 5 30 20 80 500 Yes Yes (which are default values)
 form Parameters
 	comment Enter parent directory where files are kept:
-	word inputdir /Users/catalina/Desktop/TEST-MOMEL
+	word inputdir /Users/catalina/Desktop/TEST-MOMEL-SG
 #	comment Filename (with extension):
 #	word File ALSA_Fr_PDV1-35_88.wav
 	positive Delta 5
 	positive A 30
 	positive R 20
-	positive Hzmin 80
+	positive Hzmin 50
 	positive Hzmax 500
 	choice draw_mode: 1
 		button Yes
