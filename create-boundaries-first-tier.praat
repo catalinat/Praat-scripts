@@ -12,10 +12,10 @@ beginPause: "Input directory name without final slash"
     sentence: "textDir", "'baseDir$'"
   	 comment: "Enter directory to which created TextGrids should be saved:"
   	 sentence: "saveDir" , "'baseDir$'/new"
-    # comment: "Specify tier name for text:"
-    # sentence: "tierName1", "utt"
-    # comment: "Specify tier name for boundaries:"
-    # sentence: "tierName2", "ort"
+     comment: "Specify tier name for text:"
+     sentence: "tierName1", "utt"
+     comment: "Specify tier name for boundaries:"
+     sentence: "tierName2", "ort"
 clicked = endPause: "Continue", 1
 
 # specify files to be worked on

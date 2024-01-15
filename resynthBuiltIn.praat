@@ -1,16 +1,17 @@
  ##################################################
 ## Resynthesise duration
-## This Script looks at labels for syllables
-## The time in the selected interval of a tier is doubled 
+## This Script looks at labels for selected segments in a tier
+## You can select the tier, label of selected item, strech factor
+## script needs resynthOutput directory where two new directories will 
+## be created for sound and textgrid files 
+## The time in the selected interval of a tier is modified 
 ## It creates a new tier with new boundaries for token
 ## (including increased duration)
-## new boundaries are at zero crossing
+## 
 ##
 ## Author Catalina Torres 
-## September 2019
-## Adapted from resynthf0.praat by Pauline Welby
-## welby@icp.inpg.fr
-## April 2006
+## Written by Victor Pillac
+## UZH December 2023
 #################################################### 
 baseDir$ = chooseDirectory$ ("Choose folder containing files to be modified:")
 beginPause: "Input directory name without final slash"

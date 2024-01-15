@@ -1,7 +1,8 @@
 #######################################################
 ### duplicate-tier-file-list
 ### This script opens a parent directory where files are kept.
-### It duplicates a chosen tier and creates a new tier called SYL.
+### It duplicates a chosen tier and creates a new tier called whatever you call it,
+### but you need to change that in the script
 ### Optionally, a list of all modified files can be obtained.
 ### TextGrids to be modified must have all the same number of tiers at the beginning!
 ###
@@ -43,7 +44,7 @@ for ifile from 1 to numberOfFiles
 	select TextGrid 'nameObject$'
 	
 	if duplicate_interval_tier = 1
-		Duplicate tier... 'position_to_be_duplicated' 'position_new_duplicated_interval_tier' vowel
+		Duplicate tier... 'position_to_be_duplicated' 'position_new_duplicated_interval_tier' Target
 	endif
 
 

@@ -16,7 +16,7 @@ beginPause: "Add tier in file list - Parameters"
 	boolean: "duplicate_point_tier" , 0
 	integer: "position_to_be_duplicated" , ""
 	integer: "position_new_duplicated_point_tier" , ""
-	word: 	 "name_new_point_tier" , "MOMEL"
+	word: 	 "name_new_point_tier" , "Momel"
 	boolean: "save_list_of_modified_files" , 0
 clicked = endPause: "Continue", 1
 ##########################################
@@ -42,7 +42,7 @@ for ifile from 1 to numberOfFiles
 	select TextGrid 'nameObject$'
 	
 	if duplicate_point_tier = 1
-		Duplicate tier... 'position_to_be_duplicated' 'position_new_duplicated_point_tier' MOMEL
+		Duplicate tier... 'position_to_be_duplicated' 'position_new_duplicated_point_tier' Momel
 	endif
 
 

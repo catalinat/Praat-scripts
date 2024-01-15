@@ -1,7 +1,9 @@
 ######################################################################################################
 #
 # Merge TextGrids (Original + New)
-#
+# orig_directory = directory where the original TextGrids are
+# new_directory = directory with new TextGrids (that you want to merge with your original ones)
+# outputdir = directory where your new TextGridfiles will be stored
 # optional: removes tiers 2 and 3 from 'NEW'
 # 
 # CT 24.10.2023

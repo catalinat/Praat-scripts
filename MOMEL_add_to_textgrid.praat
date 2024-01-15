@@ -66,8 +66,8 @@ for ifile to numberOfFiles
 
 	selectObject: "Sound 'baseFile$'"
 
-	runScript: preferencesDirectory$ + "/plugin_momel-intsint/analysis/automatic_min_max_f0.praat", "1.5 (= octaves)"
-	runScript: preferencesDirectory$ + "/plugin_momel-intsint/analysis/momel_single_file.praat", "30 60 750 1.04 20 5 0.05"
+	runScript: preferencesDirectory$ + "/plugin_momel-intsint/analysis/automatic_min_max_f0.praat", "1.0 (= octaves)"
+	runScript: preferencesDirectory$ + "/plugin_momel-intsint/analysis/momel_single_file.praat", "20 50 400 1.04 20 5 0.05"
 	runScript: preferencesDirectory$ + "/plugin_momel-intsint/analysis/code_with_intsint.praat"
 
 

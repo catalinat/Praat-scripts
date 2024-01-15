@@ -14,10 +14,10 @@ remove_text_from_tier_5 <- function(source_file){
   
   in_tier_5 <- FALSE
   for (row in text_grid){
-    if(grepl("item [5]:", row, fixed=TRUE)){
+    if(grepl("item [2]:", row, fixed=TRUE)){
       in_tier_5 <- TRUE
     }
-    if(grepl("item [6]:", row, fixed=TRUE)){
+    if(grepl("item [3]:", row, fixed=TRUE)){
       in_tier_5 <- FALSE
     }
     
@@ -46,4 +46,4 @@ fix_textgrids_in_directory <- function(directory){
 }
 
 # Select directory to be used
-fix_textgrids_in_directory("/Users/catalina/Desktop/UoM-G-Drive/Pitjantjara_ConverbProsody/data-30.08.2021/Analysis3-prior-annotation/new")
+fix_textgrids_in_directory("/Users/catalina/Desktop/UZH-Projects/Vietnamese_stimuli/Rec_November_2023/segmented/textgrids/new")
